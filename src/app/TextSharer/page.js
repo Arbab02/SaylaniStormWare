@@ -30,14 +30,6 @@ function ChatApp() {
       setMessages(history);
     });
 
-    socket.on('disconnect', () => {
-      // Handle disconnect event
-    });
-
-    socket.on('reconnect', () => {
-      // Handle reconnect event
-    });
-
     return () => {
       socket.off('chat message');
       socket.off('chat history');
@@ -66,8 +58,7 @@ function ChatApp() {
   };
   
   const renderMessage = (msg) => (
-   
-    <div key={msg.timestamp} className="text-white mt-3" >
+    <div key={msg.timestamp} className="text-white mt-3">
       <span>{msg.user} </span>
       <div dangerouslySetInnerHTML={{ __html: msg.text }} />
     </div>
@@ -131,18 +122,24 @@ function ChatApp() {
     }
   };
 
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      event.preventDefault();
+      sendMessage();
+    }
+  };
+
   return (
     <div className="max-w-5xl mx-auto px-4 py-2 bg-gray-900 text-white">
-        <div className="flex items-center justify-center">
-       
+      <div className="flex items-center justify-center">
         <Image
-        src={Title}
-        width={200}
-        height={10}
-        alt={Title}
-        className='rounded-full mt-[-1rem]'
-      />
-     </div>
+          src={Title}
+          width={200}
+          height={10}
+          alt={Title}
+          className='rounded-full mt-[-1rem]'
+        />
+      </div>
       <input
         id="name-input"
         className="w-3/4 p-2 mt-[-2.4rem] bg-gray-700 rounded outline-none"
@@ -168,63 +165,64 @@ function ChatApp() {
         <textarea
           id="message-input"
           placeholder="Type anything"
-          className="w-3/4 p-2 mr-2 mt-2 bg-gray-700 rounded outline-none"
+          className="w-3/4 p-2 mr-2 mt-3 bg-gray-700 rounded outline-none"
           autoComplete="off"
           value={messageInput}
           onChange={handleInputChange}
+          onKeyPress={handleKeyPress}
           rows="1"
         ></textarea>
         <button
           id="send"
-          className="px-5 py-5 mt-1 bg-[#ff0000] text-white rounded-full text-2xl"
+          className="px-5 py-5 mt-2 bg-[#ff0000] text-white rounded-full text-2xl"
           onClick={sendMessage}
         >
           <IoSend />
-         
         </button>
       </div>
       <div className="mt-4 flex flex-col md:flex-row items-center mb-2 ">
         <button
-          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded mt-2"
           onClick={handleCapitalize}
         >
           Capitalize
         </button>
         <button
-          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded mt-2"
           onClick={handleToLowercase}
         >
           Lowercase
         </button>
+       
         <button
-          className="mr-2 px-3 py-2 bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2 bg-indigo-800 text-white rounded mt-2"
           onClick={handleToUppercase}
         >
           Uppercase
         </button>
 
         <button
-          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded mt-2"
           onClick={handleRemoveExtraSpaces}
         >
           Remove Extra Spaces
         </button>
         
         <button
-          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded mt-2"
           onClick={handleClear}
         >
           Clear
         </button>
         <button
-          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded"
+          className="mr-2 px-3 py-2  bg-indigo-800 text-white rounded mt-2"
           onClick={handleCopy}
         >
           Copy
         </button>
         
         <button
-          className=" px-3 py-2 bg-indigo-800 text-white rounded"
+          className="px-3 py-2 bg-indigo-800 text-white rounded mt-2"
           onClick={handleConvertToSpeech}
         >
           Convert to Speech
