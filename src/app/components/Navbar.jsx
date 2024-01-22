@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Logo from '../images/Logo.png'; 
 const Header = () => {
   return (
-    <header className="text-black body-font shadow-lg py-3">
+    <header className="text-black body-font shadow-xl py-3">
       <div className="container mx-auto flex flex-wrap flex-col md:flex-row items-center">
       <Image
         src={Logo}
