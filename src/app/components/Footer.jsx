@@ -10,9 +10,9 @@ const Footer = () => {
           <p className="text-sm">Made Under SMIT Supervision</p>
         </div>
         <div className="flex space-x-4">
-          <Link href="/" className="hover:text-gray-500">Home</Link>
-          <Link href="/" className="hover:text-gray-500">About</Link>
-          <Link href="/" className="hover:text-gray-500">Contact</Link>
+          <Link href="/" className="hover:text-gray-500">Facebook</Link>
+          <Link href="/" className="hover:text-gray-500">YouTubeLink>
+        
         </div>
       </div>
     </footer>
