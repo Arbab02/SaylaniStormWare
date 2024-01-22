@@ -11,7 +11,7 @@ const Footer = () => {
         </div>
         <div className="flex space-x-4">
           <Link href="/" className="hover:text-gray-500">Facebook</Link>
-          <Link href="/" className="hover:text-gray-500">YouTubeLink>
+          <Link href="/" className="hover:text-gray-500">YouTube</Link>
         
         </div>
       </div>
