@@ -16,7 +16,6 @@ const Header = () => {
       />
         <nav className="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
           <Link href="/" className="mr-5 hover:text-red-600 cursor-pointer">Text Sharer</Link>
-          <Link href="../Storage" className="mr-5 hover:text-red-600 cursor-pointer" >Media Sharer</Link>
           
         </nav>
         
@@ -26,4 +25,5 @@ const Header = () => {
 };
 
 export default Header;
-
+//<Link href="../Storage" className="mr-5 hover:text-red-600 cursor-pointer" >Media Sharer</Link> 
+          
